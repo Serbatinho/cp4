@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const filteredTasks = importanceFilter === "all" ? tasks : tasks.filter(task => task[4] === importanceFilter);
         updateTable(filteredTasks);
     });
+
+    const orderButton = document.querySelector("#order-button");
+    orderButton.addEventListener("click", () => {
+        console.log('teste')
+    });
 });
 
 function updateTable(filteredTasks = tasks) {
