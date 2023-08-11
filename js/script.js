@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
         tasks.push(task);
         updateTable();
     });
+
+    const filterButton = document.querySelector("button[type='button']");
+    filterButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        const importanceFilter = document.getElementById("importance-filter").value;
+        const filteredTasks = importanceFilter === "all" ? tasks : tasks.filter(task => task[4] === importanceFilter);
+        updateTable(filteredTasks);
+    });
 });
 
 function updateTable(filteredTasks = tasks) {
