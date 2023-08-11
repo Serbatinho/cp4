@@ -16,14 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
         tasks.push(task);
         updateTable();
     });
-
 });
 
 function updateTable(filteredTasks = tasks) {
     const tableContent = document.getElementById("table-content");
     tableContent.innerHTML = "";
 
-    filteredTasks.forEach((task) => {
+    filteredTasks.forEach((task, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${task[0]}</td>
@@ -33,8 +32,13 @@ function updateTable(filteredTasks = tasks) {
             <td>${task[4]}</td>
             <td>${task[5]}</td>
             <td>${task[6]}</td>
-            <td><button>Deletar</button></td>
+            <td><button onclick="deleteTask(${index})">Deletar</button></td>
         `;
         tableContent.appendChild(row);
     });
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    updateTable();
 }
