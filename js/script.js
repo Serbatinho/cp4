@@ -69,7 +69,17 @@ function orderTasksByImportance() {
         return 0;
     });
 
-    const descriptionList = orderedTasks.map(task => task[1]).join("\n");
+    const descriptionList = orderedTasks.map(task => `<tr><td>${task[0]}</td><td>${task[1]}</td></tr>`).join("");
     const descriptionListContainer = document.getElementById("description-list");
-    descriptionListContainer.innerHTML = descriptionList;
+    descriptionListContainer.innerHTML = `
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </thead>
+            <tbody>
+                ${descriptionList}
+            </tbody>
+        </table>
+    `;
 }
