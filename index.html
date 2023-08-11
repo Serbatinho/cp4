@@ -11,53 +11,54 @@
     <title>Serbato CP4</title>
 </head>
 <body>
-    <form action="">
+    <main>
         <h1>Lista de Tarefas</h1>
-        <form action=""></form>
-            <h2>Implementar Tarefa</h2>
-            <input type="text" id="input-task" placeholder="Nome">
-            <input type="text" id="input-desc" placeholder="Descrição">
-            <input type="text" id="input-author" placeholder="Autor">
-            <input type="text" id="input-depart" placeholder="Departamento">
-            
-            <select id="importance-setter">
-                <option value=""></option>
-                <option value="low">Baixa</option>
-                <option value="medium">Media</option>
-                <option value="high">Alta</option>
-            </select>
+        <form action="">
+                <h2>Implementar Tarefa</h2>
+                <input type="text" id="input-task" placeholder="Nome">
+                <input type="text" id="input-desc" placeholder="Descrição">
+                <input type="text" id="input-author" placeholder="Autor">
+                <input type="text" id="input-depart" placeholder="Departamento">
+                
+                <select id="importance-setter">
+                    <option value=""></option>
+                    <option value="low">Baixa</option>
+                    <option value="medium">Media</option>
+                    <option value="high">Alta</option>
+                </select>
+        
+                <input type="number" id="input-value" placeholder="Valor">
+                <input type="number" id="input-duration" placeholder="Duração">
+                <button type="submit">Adicionar Tarefa</button>
+        
+                <h3>Filtrar por importancia</h3>
+                <select id="importance-filter">]
+                    <option value="all">Todas</option>
+                    <option value="low">Baixa</option>
+                    <option value="medium">Media</option>
+                    <option value="high">Alta</option>
+                </select>
+                <button type="button" id="">Filtrar</button>
+        </form>
     
-            <input type="number" id="input-value" placeholder="Valor">
-            <input type="number" id="input-duration" placeholder="Duração">
-            <button type="submit">Adicionar Tarefa</button>
+        <table id="table">
+            <thead>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Autor</th>
+                <th>Departamento</th>
+                <th>Importancia</th>
+                <th>Valor</th>
+                <th>Duração</th>
+                <th>Deletar</th>
+            </thead>
+            <tbody id="table-content"></tbody>
+        </table>
     
-            <h3>Filtrar por importancia</h3>
-            <select id="importance-filter">]
-                <option value="all">Todas</option>
-                <option value="low">Baixa</option>
-                <option value="medium">Media</option>
-                <option value="high">Alta</option>
-            </select>
-            <button type="button" id="">Filtrar</button>
+        <div class="order-full-content">
             <button id="order-button">Ordenar</button>
-    </form>
-
-    <table id="table">
-        <h3>Tarefas</h3>
-        <thead>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Autor</th>
-            <th>Departamento</th>
-            <th>Importancia</th>
-            <th>Valor</th>
-            <th>Duração</th>
-            <th>Deletar</th>
-        </thead>
-        <tbody id="table-content">Dados futuros aqui</tbody>
-    </table>
-
-    <div id="description-list"></div>
-
+            <div id="description-list"></div>
+        </div>
+    </main>
 </body>
 </html>

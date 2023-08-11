@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+main {
+    gap: 3vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+main form,table,div {
+    border: solid 1px black;
+    border-radius: 4px;
+    padding: 4px;
+    width: 90vw;
+    text-align: center;
+}
+
+td {
+    border-bottom: solid 1px black;
+}
+
+button {
+    margin: 5px 0;
+}
