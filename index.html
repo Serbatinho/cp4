@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="./style/style.css">
 
-    <script src="./js/"></script>
+    <script src="./js/script.js" deferr></script>
 
     <title>Serbato CP4</title>
 </head>
@@ -14,30 +14,34 @@
     <form action="">
         <h1>Lista de Tarefas</h1>
         <form action=""></form>
-            <h3>Implementar Tarefa</h3>
-            <input type="text" id="" placeholder="Nome">
-            <input type="text" id="" placeholder="Descrição">
-            <input type="text" id="" placeholder="Autor">
-            <input type="text" id="" placeholder="Departamento">
+            <h2>Implementar Tarefa</h2>
+            <input type="text" id="input-task" placeholder="Nome">
+            <input type="text" id="input-desc" placeholder="Descrição">
+            <input type="text" id="input-author" placeholder="Autor">
+            <input type="text" id="input-depart" placeholder="Departamento">
             
-            <h4>Importancia</h4>
-            <button>Alta</button>
-            <button>Media</button>
-            <button>Baixa</button>
+            <select id="importance-setter">
+                <option value=""></option>
+                <option value="low">Baixa</option>
+                <option value="medium">Media</option>
+                <option value="high">Alta</option>
+            </select>
     
-            <input type="number" id="" placeholder="Valor">
-            <input type="number" id="" placeholder="Duração">
+            <input type="number" id="input-value" placeholder="Valor">
+            <input type="number" id="input-duration" placeholder="Duração">
+            <button type="submit">Adicionar Tarefa</button>
     
-            <select name="" id="">]
+            <h3>Filtrar por importancia</h3>
+            <select id="importance-filter">]
                 <option value="all">Todas</option>
-                <option value="baixa">Baixa</option>
-                <option value="media">Media</option>
-                <option value="alta">Alta</option>
+                <option value="low">Baixa</option>
+                <option value="medium">Media</option>
+                <option value="high">Alta</option>
             </select>
             <button type="button" id="">Filtrar</button>
     </form>
 
-    <table id="">
+    <table id="table">
         <h3>Tarefas</h3>
         <thead>
             <th>Nome</th>
@@ -49,7 +53,7 @@
             <th>Duração</th>
             <th>Deletar</th>
         </thead>
-        <tbody id="">Dados futuros aqui</tbody>
+        <tbody id="table-content">Dados futuros aqui</tbody>
     </table>
 
 </body>
