@@ -2,32 +2,36 @@ const tasks = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.querySelector("button[type='submit']");
-    addButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const task = [
-            document.getElementById("input-task").value,
-            document.getElementById("input-desc").value,
-            document.getElementById("input-author").value,
-            document.getElementById("input-depart").value,
-            document.getElementById("importance-setter").value,
-            document.getElementById("input-value").value,
-            document.getElementById("input-duration").value
-        ];
-        tasks.push(task);
-        updateTable();
-    });
+    if (addButton) {
+        addButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            const task = [
+                document.getElementById("input-task").value,
+                document.getElementById("input-desc").value,
+                document.getElementById("input-author").value,
+                document.getElementById("input-depart").value,
+                document.getElementById("importance-setter").value,
+                document.getElementById("input-value").value,
+                document.getElementById("input-duration").value
+            ];
+            tasks.push(task);
+            updateTable();
+        });
+    }
 
     const filterButton = document.querySelector("button[type='button']");
-    filterButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const importanceFilter = document.getElementById("importance-filter").value;
-        const filteredTasks = importanceFilter === "all" ? tasks : tasks.filter(task => task[4] === importanceFilter);
-        updateTable(filteredTasks);
-    });
+    if (filterButton) {
+        filterButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            const importanceFilter = document.getElementById("importance-filter").value;
+            const filteredTasks = importanceFilter === "all" ? tasks : tasks.filter(task => task[4] === importanceFilter);
+            updateTable(filteredTasks);
+        });
+    }
 
     const orderButton = document.querySelector("#order-button");
     orderButton.addEventListener("click", () => {
-        console.log('teste')
+        orderTasksByImportance();
     });
 });
 
@@ -54,4 +58,18 @@ function updateTable(filteredTasks = tasks) {
 function deleteTask(index) {
     tasks.splice(index, 1);
     updateTable();
+}
+
+function orderTasksByImportance() {
+    const orderedTasks = tasks.slice().sort((a, b) => {
+        if (a[4] === "high") return -1;
+        if (b[4] === "high") return 1;
+        if (a[4] === "medium" && b[4] === "low") return -1;
+        if (a[4] === "low" && b[4] === "medium") return 1;
+        return 0;
+    });
+
+    const descriptionList = orderedTasks.map(task => task[1]).join("\n");
+    const descriptionListContainer = document.getElementById("description-list");
+    descriptionListContainer.innerHTML = descriptionList;
 }
