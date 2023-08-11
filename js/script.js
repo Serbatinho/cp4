@@ -14,6 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("input-duration").value
         ];
         tasks.push(task);
-        console.log(task)
+        updateTable();
     });
+
 });
+
+function updateTable(filteredTasks = tasks) {
+    const tableContent = document.getElementById("table-content");
+    tableContent.innerHTML = "";
+
+    filteredTasks.forEach((task) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${task[0]}</td>
+            <td>${task[1]}</td>
+            <td>${task[2]}</td>
+            <td>${task[3]}</td>
+            <td>${task[4]}</td>
+            <td>${task[5]}</td>
+            <td>${task[6]}</td>
+            <td><button>Deletar</button></td>
+        `;
+        tableContent.appendChild(row);
+    });
+}
